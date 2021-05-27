@@ -109,4 +109,16 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  config.action_mailer.default_url_options = { host: 'https://concon-mail.herokuapp.com' }
+
+  config.action_mailer.raise_delivery_errors = true
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address => "smtp.gmail.com", # smtpサーバーのホスト名
+    :port => 587,
+    :authentication => :plain,
+    :user_name => Rails.application.credentials.gmail[:address],
+    :password => Rails.application.credentials.gmail[:password]
+  }
 end
