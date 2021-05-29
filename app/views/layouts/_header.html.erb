@@ -5,8 +5,12 @@
       </a>
 
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <%= link_to "登録", new_account_registration_path, class: "me-3 py-2 text-dark text-decoration-none" %>
-        <%= link_to "ログイン", new_account_session_path, class: "me-3 py-2 text-dark text-decoration-none" %>
+        <% if account_signed_in? %>
+          <%= link_to "ログアウト", destroy_account_session_path, method: :delete, data: {confirm: "Are you sure?" }, class: "me-3 py-2 text-dark text-decoration-none" %>
+        <% else %>
+          <%= link_to "登録", new_account_registration_path, class: "me-3 py-2 text-dark text-decoration-none" %>
+          <%= link_to "ログイン", new_account_session_path, class: "me-3 py-2 text-dark text-decoration-none" %>
+        <% end %>
       </nav>
     </div>
   </header>
