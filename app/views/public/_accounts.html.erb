@@ -2,8 +2,8 @@
 <% @accounts.each do |a| %>
   <div>
     <h4><%= a.email %></h4>
-    <% if a.image? %>
-      <%= image_tag a.image.url %>
+    <% if a.photo? %>
+      <%= image_tag a.photo.url %>
     <% end %>
   </div>
 <% end %>

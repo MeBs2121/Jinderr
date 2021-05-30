@@ -3,5 +3,5 @@ class Account < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable#, :confirmable
-  mount_uploader :image, ImageUploader
+  mount_uploader :photo, PhotoUploader
 end
