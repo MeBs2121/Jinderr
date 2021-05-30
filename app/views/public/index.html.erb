@@ -6,3 +6,7 @@
 <% if account_signed_in? %>
   <%= render 'accounts' %>
 <% end %>
+
+<% if account_signed_in? %>
+  <%= link_to current_account.nickname, profile_path(current_account.nickname), class: "btn btn-primary" %>
+<% end %>
