@@ -1,0 +1,10 @@
+<% if @accounts.any? %>
+<% @accounts.each do |a| %>
+  <div>
+    <h4><%= a.email %></h4>
+    <% if a.image? %>
+      <%= image_tag a.image.url %>
+    <% end %>
+  </div>
+<% end %>
+<% end %>
