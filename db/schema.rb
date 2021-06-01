@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_072319) do
+ActiveRecord::Schema.define(version: 2021_06_01_080335) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,9 +30,26 @@ ActiveRecord::Schema.define(version: 2021_06_01_072319) do
     t.string "lastname"
     t.string "photo"
     t.integer "supporting_id"
+    t.integer "gender_id"
     t.index ["email"], name: "index_accounts_on_email", unique: true
+    t.index ["gender_id"], name: "index_accounts_on_gender_id"
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
     t.index ["supporting_id"], name: "index_accounts_on_supporting_id"
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interested_in_genders", force: :cascade do |t|
+    t.integer "account_id", null: false
+    t.integer "gender_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_interested_in_genders_on_account_id"
+    t.index ["gender_id"], name: "index_interested_in_genders_on_gender_id"
   end
 
   create_table "supportings", force: :cascade do |t|
@@ -41,5 +58,8 @@ ActiveRecord::Schema.define(version: 2021_06_01_072319) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "accounts", "genders"
   add_foreign_key "accounts", "supportings"
+  add_foreign_key "interested_in_genders", "accounts"
+  add_foreign_key "interested_in_genders", "genders"
 end
