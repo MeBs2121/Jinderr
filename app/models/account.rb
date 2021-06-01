@@ -4,4 +4,6 @@ class Account < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable#, :confirmable
   mount_uploader :photo, PhotoUploader
+
+  belongs_to :supporting
 end

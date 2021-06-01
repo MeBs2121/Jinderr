@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    profile_path(params[:account][:nickname]) # ログイン後に遷移するpathを設定
+    # profile_path(params[:account][:nickname]) # ログイン後に遷移するpathを設定
+    profile_path(current_account.nickname) # ログイン後に遷移するpathを設定
   end
 
   protected
