@@ -11,4 +11,9 @@ class Account < ApplicationRecord
   has_many :interested_in_genders
   has_many :gender_interests, through: :interested_in_genders, source: :gender
 
+  validates :firstname,  presence: true, length: { maximum: 20 }
+  validates :lastname,  presence: true, length: { maximum: 20 }
+  validates :nickname,  presence: true, length: { maximum: 20 }
+  validates :email, presence: true
+
 end
