@@ -8,6 +8,7 @@ class Account < ApplicationRecord
   belongs_to :supporting
   belongs_to :gender
 
-  has_many :interest_in_genders, class_name: "InterestedInGender", foreign_key: "gender_id"
+  has_many :interested_in_genders
+  has_many :gender_interests, through: :interested_in_genders, source: :gender
 
 end
