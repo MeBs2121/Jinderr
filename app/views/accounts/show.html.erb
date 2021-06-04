@@ -23,7 +23,18 @@
           <span>なし</span>
         <% end %>
       </p>
-    
+
+      <p>Gender interests : 
+        
+        <% if @account.gender_interests.present? %>
+            <% @account.gender_interests.each do |g| %>
+              <%= g.name %> 
+            <% end %>
+          <% else %>
+            なし
+        <% end %>
+        
+      </p>
 
     <p>Details : 
       <% if @account.details.blank? %>

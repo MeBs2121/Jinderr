@@ -9,7 +9,7 @@ class Account < ApplicationRecord
   belongs_to :gender, optional: true
 
   has_many :interested_in_genders
-  has_many :gender_interests, through: :interested_in_genders, source: :gender
+  has_many :gender_interests, through: :interested_in_genders, source: :gender, dependent: :destroy
 
   validates :firstname,  presence: true, length: { maximum: 20 }
   validates :lastname,  presence: true, length: { maximum: 20 }
