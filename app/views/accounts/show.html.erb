@@ -8,10 +8,30 @@
   <div class="col-md-8">
     <h3><%= @account.nickname %></h3>
 
-    <p><span>Team : </span><%= @account.supporting.team %></p>
-    <p><span>Gender : </span><%= @account.gender.name %></p>
+    
+      <p>Team : 
+        <% if @account.supporting.present? %>
+          <span><%= @account.supporting.team %></span>
+        <% else %>
+          <span>なし</span>
+        <% end %>
+      </p>
+      <p>Gender : 
+        <% if @account.gender.present? %>
+          <span><%= @account.gender.name %></span>
+        <% else %>
+          <span>なし</span>
+        <% end %>
+      </p>
+    
 
-    <p><span>Details : </span><%= @account.details %></p>
+    <p>Details : 
+      <% if @account.details.blank? %>
+        <span>なし</span>
+      <% else %>
+        <span><%= @account.details %></span>
+      <% end %>
+    </p>
     
   </div>
 </div>

@@ -5,8 +5,8 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable#, :confirmable
   mount_uploader :photo, PhotoUploader
 
-  belongs_to :supporting
-  belongs_to :gender
+  belongs_to :supporting, optional: true
+  belongs_to :gender, optional: true
 
   has_many :interested_in_genders
   has_many :gender_interests, through: :interested_in_genders, source: :gender
