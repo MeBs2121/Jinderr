@@ -1,4 +1,4 @@
-<div class="pricing-header px-4 py-5 my-5 mx-auto text-center">
+<div class="pricing-header px-4 my-5 mx-auto text-center">
   <h1 class="display-4 fw-bold">Jinderr</h1>
   <p class="fs-5 text-muted px-5">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
 </div>
@@ -58,11 +58,3 @@
       </div> %>
     </div>
   </main>
-
-<% if account_signed_in? %>
-  <%= render 'accounts' %>
-<% end %>
-
-<% if account_signed_in? %>
-  <%= link_to current_account.nickname, profile_path(current_account.nickname), class: "btn btn-primary" %>
-<% end %>

@@ -1,0 +1,7 @@
+<div>
+    <h4><%= account.email %></h4>
+    <% if account.photo? %>
+      <%= image_tag account.photo.url %>
+    <% end %>
+    <%= link_to "Profile", edit_account_registration_path, class: "btn btn-success" %>
+</div>

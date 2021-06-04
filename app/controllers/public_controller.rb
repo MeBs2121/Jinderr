@@ -1,5 +1,9 @@
 class PublicController < ApplicationController
   def index
-    @accounts = Account.all
+    if current_account.nil?
+      @accounts = Account.all
+    else
+      redirect_to profile_path(current_account.nickname)
+    end
   end
 end
