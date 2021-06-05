@@ -10,15 +10,13 @@
   </head>
 
   <body>
-  
-    <div class="container py-3">
-      <%= render 'layouts/header' %>
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "#{key}") %>
-        <% end %>
-        <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div>
+    <main class="h-100">
+        <div class="page-wrapper d-flex flex-row h-100 w-100">
 
+          <%= render 'layouts/sidebar' %>
+
+            <%= yield %>
+        </div>
+    </main>
   </body>
 </html>
