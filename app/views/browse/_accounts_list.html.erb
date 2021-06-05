@@ -1,8 +1,66 @@
 <div class="col-sm-3 p-0 bg-light border-end">
-  <div class="row border-bottom">
+  <%# 上部分 %>
+  <div class="row border-bottom m-0">
     <div class="my-account p-2">
       <%= image_tag current_account.photo.url, size: "40x40", class: "thumb" %>
       <span class="fw-bold"><%= current_account.nickname %></span>
+    </div>
+  </div>
+
+  <%# 下部分 %>
+  
+
+  <%# タブ %>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="matching-tab" data-bs-toggle="tab" data-bs-target="#matching" type="button" role="tab" aria-controls="matching" aria-selected="true">Matching</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="message-tab" data-bs-toggle="tab" data-bs-target="#message" type="button" role="tab" aria-controls="message" aria-selected="false">Message</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <%# マッチング一覧 %>
+    <div class="tab-pane fade show active" id="matching" role="tabpanel" aria-labelledby="home-tab">
+      <div class="row account-list p-4">
+    <div class="col-sm-6 p-2">
+      <div class="image text-center">
+        <%= image_tag current_account.photo.url, size: "60x60", class: "pic d-inline-block" %>
+      </div>
+      <div class="nickname text-center">
+        <span class="d-inline-block"><%= current_account.nickname %></span>
+      </div>
+    </div>
+    <div class="col-sm-6 p-2">
+      <div class="image text-center">
+        <%= image_tag current_account.photo.url, size: "60x60", class: "pic d-inline-block" %>
+      </div>
+      <div class="nickname text-center">
+        <span class="d-inline-block"><%= current_account.nickname %></span>
+      </div>
+    </div>
+    <div class="col-sm-6 p-2">
+      <div class="image text-center">
+        <%= image_tag current_account.photo.url, size: "60x60", class: "pic d-inline-block" %>
+      </div>
+      <div class="nickname text-center">
+        <span class="d-inline-block"><%= current_account.nickname %></span>
+      </div>
+    </div>
+    <div class="col-sm-6 p-2">
+      <div class="image text-center">
+        <%= image_tag current_account.photo.url, size: "60x60", class: "pic d-inline-block" %>
+      </div>
+      <div class="nickname text-center">
+        <span class="d-inline-block"><%= current_account.nickname %></span>
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <%# メッセージ %>
+    <div class="tab-pane fade" id="message" role="tabpanel" aria-labelledby="profile-tab">
+      メッセージ
     </div>
   </div>
 </div>

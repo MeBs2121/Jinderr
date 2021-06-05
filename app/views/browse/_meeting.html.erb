@@ -5,13 +5,13 @@
   <div class="w-100 h-50 position-relative">
     <%# カード %>
     <div class="meeting-card position-absolute top-50 start-50 translate-middle">
-      
+      <%= image_tag 'sample.jpg', class: "meeting-image" %>
     </div>
 
     <%# ボタン %>
-    <div class="meeting-btns bg-secondary position-absolute top-100 start-50 translate-middle-x">
-    
+    <div class="meeting-btns p-2 position-absolute top-100 start-50 translate-middle-x text-center">
+      <%= button_to 'X', "#", { method: :get, class: "d-inline-block", id: "dislike" } %>
+      <%= button_to 'O', "#", { method: :get, class: "d-inline-block", id: "like" } %>
     </div>
-
-</div>
+  </div>
 </div>
