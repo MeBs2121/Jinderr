@@ -1,17 +1,17 @@
-<div class="col-sm-6 p-0 meeting bg-gradient">
-  <div class="row">
-    <h2 class="text-center py-5 fs-1">Like?</h2>
-  </div>
-  <div class="w-100 h-50 position-relative">
-    <%# カード %>
-    <div class="meeting-card position-absolute top-50 start-50 translate-middle">
-      <%= image_tag 'sample.jpg', class: "meeting-image" %>
-    </div>
+<div class="col-sm-6 p-0 meeting bg-gradient position-relative" id="meeting">
 
-    <%# ボタン %>
-    <div class="meeting-btns p-2 position-absolute top-100 start-50 translate-middle-x text-center">
-      <%= button_to 'X', "#", { method: :get, class: "d-inline-block", id: "dislike" } %>
-      <%= button_to 'O', "#", { method: :get, class: "d-inline-block", id: "like" } %>
-    </div>
-  </div>
+      <h2 class="text-center py-5 fs-1 meeting-head translate-middle-x start-50 position-absolute">Like?</h2>
+      <%# カード %>
+      <div class="meeting-card position-absolute top-50 start-50 translate-middle">
+        <%= image_tag 'sample.jpg', class: "meeting-image" %>
+      </div>
+      <%# ボタン %>
+      <div class="meeting-btns p-2 position-absolute start-50 translate-middle-x text-center">
+        <%= button_to 'X', "#", { method: :get, class: "d-inline-block", id: "dislike" } %>
+        <%= button_to 'O', "#", { method: :get, class: "d-inline-block", id: "like" } %>
+      </div>
+
+
+  <%# チャット %>
+  <%= render 'convo' %>
 </div>

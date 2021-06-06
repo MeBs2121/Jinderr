@@ -24,12 +24,28 @@ a {
   margin-right: 0 !important;
 }
 
-.browse .thumb {
-  // margin-left: 12px;
+.thumb {
+  border-radius: 50%;
+  margin-right: 16px;
 }
+
+// メッセージタブ
+.message_item,
+.matching_item {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+// ミーティング
 
 .browse .meeting {
   background-color: $pink-100;
+}
+
+.meeting-head {
+  top: 5%;
 }
 
 .meeting-card {
@@ -46,8 +62,63 @@ a {
 .meeting-btns {
   width: 300px;
   height: 60px;
+  top: 80%;
 
   .button_to {
     display: inline-block;
   }
+}
+
+// チャット
+#convo {
+  display: none;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $teal-100;
+}
+
+#close-convo {
+  margin: 10px;
+}
+
+.message-right,
+.message-left {
+  border-radius: 10px;
+  max-width: 70%;
+}
+
+.message-left {
+  background-color: aliceblue;
+}
+
+.message-right {
+  background-color: rgb(90, 146, 196);
+}
+
+.sending-message {
+  // height: 70px;
+}
+
+// Details
+#details {
+  display: none;
+}
+
+.details-image {
+  height: 70vh;
+}
+
+.details-thumb {
+  max-width: 100%;
+  height: 70vh;
+  display: block;
+  vertical-align: top;
+}
+
+.details-desc {
+  height: 30vh;
 }

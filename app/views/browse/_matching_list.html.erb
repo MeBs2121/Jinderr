@@ -1,0 +1,10 @@
+<div class="row account-list p-4">
+  <div class="col-sm-6 p-2 matching_item">
+    <div class="image text-center">
+      <%= image_tag current_account.photo.url, size: "60x60", class: "pic d-inline-block" %>
+    </div>
+    <div class="nickname text-center">
+      <span class="d-inline-block"><%= current_account.nickname %></span>
+    </div>
+  </div>
+</div>
