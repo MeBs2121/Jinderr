@@ -15,7 +15,6 @@ class AccountsController < ApplicationController
 
   private
     def find_account
-      account = Account.find(params[:id])
+      @account = Account.find(params[:id])
     end
-    
 end

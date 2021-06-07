@@ -9,7 +9,9 @@
           <span class="d-block"><%= m.nickname %></span>
           <span class="d-block text-secondary">Sample message sent.</span>
         </div>
-        <%= button_to 'unfollow', unfollow_path(m.id), method: :post , remote: true%>
+        <div id="follow-btn">
+          <%= button_to 'unfollow', unfollow_path(m.id), method: :post , remote: true%>
+        </div>
       </div>
     </div>
   </div>

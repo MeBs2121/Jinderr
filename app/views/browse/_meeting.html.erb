@@ -1,16 +1,24 @@
-<div class="col-sm-6 p-0 meeting bg-gradient position-relative" id="meeting">
+<div class="col-sm-6 pt-5 px-0 meeting bg-gradient position-relative" id="meeting">
 
-      <h2 class="text-center py-5 fs-1 meeting-head translate-middle-x start-50 position-absolute">Like?</h2>
-      <%# カード %>
-      <div class="meeting-card position-absolute top-50 start-50 translate-middle">
-        <%= image_tag 'sample.jpg', class: "meeting-image" %>
-      </div>
-      <%# ボタン %>
-      <div class="meeting-btns p-2 position-absolute start-50 translate-middle-x text-center">
-        <%= button_to 'X', "#", { method: :get, class: "d-inline-block", id: "dislike" } %>
-        <%= button_to 'O', "#", { method: :get, class: "d-inline-block", id: "like" } %>
-      </div>
+  <h2 class="fs-1 text-center mb-5">Want to Chat?</h2>
 
+  <div class="meeting-cards d-flex align-items-center flex-column">
+    <ul id="slides" class="mb-4">
+      <% @strangers.each_with_index do |stranger, index| %>
+        <li class="slide <%= "showing" if index == 0 %>">
+          <div class="position-relative">
+            <%= card_image stranger %>
+            <span class="fs-3 card-nickname"><%= stranger.nickname %></span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="text-center">
+      <button id="dislike" class="d-inline-block m-2">X</button>
+      <button id="like" class="d-inline-block m-2">0</button>
+    </div>
+  </div>
 
   <%# チャット %>
   <%= render 'convo' %>

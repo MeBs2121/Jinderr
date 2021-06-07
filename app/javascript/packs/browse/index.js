@@ -17,4 +17,16 @@ $(function () {
     convo.hide();
     details.hide();
   });
+
+  var slides = document.querySelectorAll("#slides .slide");
+  var currentSlide = 0;
+  // var slideInterval = setInterval(nextSlide, 500);
+  $("#like").on("click", nextSlide);
+
+  function nextSlide() {
+    console.log("Next Slide!");
+    slides[currentSlide].className = "slide";
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].className = "slide showing";
+  }
 });
