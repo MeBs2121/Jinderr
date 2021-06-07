@@ -1,0 +1,49 @@
+<h1 class="pb-2 mb-4 border-bottom">Profile <span><%= link_to "Edit", edit_account_registration_path, class: "btn btn-success" %></span></h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= display_image @account, 160 %>
+    <%#= image_tag @account.photo.url, size: "160x160", class: "pic" %>
+  </div>
+  
+  <div class="col-md-8">
+    <h3><%= @account.nickname %></h3>
+
+    
+      <p>Team : 
+        <% if @account.supporting.present? %>
+          <span><%= @account.supporting.team %></span>
+        <% else %>
+          <span>なし</span>
+        <% end %>
+      </p>
+      <p>Gender : 
+        <% if @account.gender.present? %>
+          <span><%= @account.gender.name %></span>
+        <% else %>
+          <span>なし</span>
+        <% end %>
+      </p>
+
+      <p>Gender interests : 
+        
+        <% if @account.gender_interests.present? %>
+            <% @account.gender_interests.each do |g| %>
+              <%= g.name %> 
+            <% end %>
+          <% else %>
+            なし
+        <% end %>
+        
+      </p>
+
+    <p>Details : 
+      <% if @account.details.blank? %>
+        <span>なし</span>
+      <% else %>
+        <span><%= @account.details %></span>
+      <% end %>
+    </p>
+    
+  </div>
+</div>

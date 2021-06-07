@@ -29,6 +29,10 @@ a {
   margin-right: 16px;
 }
 
+.pic {
+  border-radius: 50%;
+}
+
 // メッセージタブ
 .message_item,
 .matching_item {
@@ -36,6 +40,10 @@ a {
   &:hover {
     opacity: 0.5;
   }
+}
+
+.who-sent-what {
+  padding-left: 10px;
 }
 
 // ミーティング
