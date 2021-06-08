@@ -6,18 +6,26 @@ $(function () {
   $("#message-tab").on("click", function () {
     $(".message_item").on("click", function () {
       let accountId = $(this).data("account-id");
-      browsing.hide();
-      convo.show();
-      details.show();
+      openConvo();
     });
   });
 
   $("#close-convo").on("click", function () {
+    closeConvo();
+  });
+
+  function openConvo() {
+    browsing.hide();
+    convo.show();
+    details.show();
+  }
+  function closeConvo() {
     browsing.show();
     convo.hide();
     details.hide();
-  });
+  }
 
+  // スライド、ボタン
   var slides = document.querySelectorAll("#slides .slide");
   var currentSlide = 0;
 
