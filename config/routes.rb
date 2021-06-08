@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'browse', to: 'browse#index'
   post 'unfollow/:id', to: 'accounts#unfollow', as: 'unfollow'
   post 'follow/:id', to: 'accounts#follow', as: 'follow'
+  get 'good', to: 'browse#good', as: 'good'
 end

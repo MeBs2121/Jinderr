@@ -1,16 +1,12 @@
-<h2 class="pb-2 mb-4 border-bottom">Matchers</h2>
+<h2 class="mt-4 pb-2 mb-4 border-bottom">Matching List</h2>
 
-<% @account.matchers.each do |m| %>
-  <div class="row m-0" data-account-id="1">
+<% current_account.matchers.each do |a| %>
+  <div class="row m-0" data-account-id="<%= a.id %>">
     <div class="p-3">
       <div class="d-flex align-items-center">
-        <%= display_image m, 40 %>
-        <div class="who-sent-what">
-          <span class="d-block"><%= m.nickname %></span>
-          <span class="d-block text-secondary">Sample message sent.</span>
-        </div>
-        <div id="follow-btn">
-          <%= button_to 'unfollow', unfollow_path(m.id), method: :post , remote: true%>
+        <%= display_image a, 40 %>
+        <div class="">
+          <span class="fs-4"><%= a.nickname %></span>
         </div>
       </div>
     </div>

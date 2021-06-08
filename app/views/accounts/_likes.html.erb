@@ -1,0 +1,18 @@
+<h2 class="pb-2 mb-4 border-bottom">Account you liked</h2>
+
+<% current_account.followings.each do |a| %>
+  <div class="row m-0" data-account-id="<%= a.id %>">
+    <div class="p-3">
+      <div class="d-flex align-items-center">
+        <%= display_image a, 40 %>
+        <div class="who-sent-what">
+          <span class="d-block"><%= a.nickname %></span>
+          <span class="d-block text-secondary">Sample message sent.</span>
+        </div>
+        <div id="account_<%= a.id %>">
+          <%= button_to 'unfollow', unfollow_path(a.id), method: :post , remote: true %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

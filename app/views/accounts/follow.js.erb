@@ -1,1 +1,2 @@
-document.getElementById("follow-btn").innerHTML = "<%= j button_to 'unfollow', unfollow_path(@account.id), method: :post , remote: true %>"
+document.getElementById("account_<%= @account.id %>").innerHTML = "<%= j button_to 'unfollow', unfollow_path(@account.id), method: :post , remote: true %>"
+console.log("followed")
