@@ -21,6 +21,11 @@ class Account < ApplicationRecord
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
 
+  #Chat Rooms
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :rooms, through: :entries
+
   def following?(account)
     following_relationships.find_by(following_id: account.id)
   end

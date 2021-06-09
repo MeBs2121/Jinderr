@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_002510) do
+ActiveRecord::Schema.define(version: 2021_06_09_061012) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2021_06_07_002510) do
     t.index ["supporting_id"], name: "index_accounts_on_supporting_id"
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.integer "account_id", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_entries_on_account_id"
+    t.index ["room_id"], name: "index_entries_on_room_id"
+  end
+
   create_table "genders", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -52,6 +61,16 @@ ActiveRecord::Schema.define(version: 2021_06_07_002510) do
     t.index ["gender_id"], name: "index_interested_in_genders_on_gender_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "account_id", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_messages_on_account_id"
+    t.index ["room_id"], name: "index_messages_on_room_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "following_id"
@@ -62,6 +81,11 @@ ActiveRecord::Schema.define(version: 2021_06_07_002510) do
     t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "supportings", force: :cascade do |t|
     t.string "team"
     t.datetime "created_at", precision: 6, null: false
@@ -70,6 +94,10 @@ ActiveRecord::Schema.define(version: 2021_06_07_002510) do
 
   add_foreign_key "accounts", "genders"
   add_foreign_key "accounts", "supportings"
+  add_foreign_key "entries", "accounts"
+  add_foreign_key "entries", "rooms"
   add_foreign_key "interested_in_genders", "accounts"
   add_foreign_key "interested_in_genders", "genders"
+  add_foreign_key "messages", "accounts"
+  add_foreign_key "messages", "rooms"
 end
