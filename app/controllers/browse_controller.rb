@@ -4,7 +4,10 @@ class BrowseController < ApplicationController
   def index
     @matchers = current_account.matchers
     # @strangers = Account.where.not(id: current_account.id)
-    @strangers = Account.where.not(id: current_account.id)
+    ids_exclusion = current_account.followings.ids
+    ids_exclusion << current_account.id
+    
+    @strangers = Account.where.not(id: ids_exclusion)
   end
 
   def good

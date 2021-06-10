@@ -19,11 +19,11 @@ $(document).on("turbolinks:load", function () {
       if (data.message.account_id === currentId) {
         console.log(1);
         element = `<div class="d-flex justify-content-end align-items-center my-3">
-        <span class="fs-5 message-right px-2 py-1">${data.message.content}</span>
+        <span class="their-messagesfs-5 message-right px-4 py-1">${data.message.content}</span>
       </div>`;
       } else {
         element = `<div class="d-flex align-items-center my-3">
-        <span class="fs-5 message-left px-2 py-1">${data.message.content}</span>
+        <span class="my-messages fs-5 message-left px-4 py-1">${data.message.content}</span>
       </div>`;
       }
       // console.log(element);

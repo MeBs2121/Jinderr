@@ -4,6 +4,7 @@ body {
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
+  font-weight: 500;
 }
 
 a {
@@ -31,6 +32,13 @@ a {
 
 .pic {
   border-radius: 50%;
+}
+
+.my-account {
+  background: aliceblue;
+  a {
+    color: #555;
+  }
 }
 
 // メッセージタブ
@@ -132,7 +140,7 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background-color: $teal-100;
+  // background-color: $teal-100;
 }
 
 #close-convo {
@@ -146,16 +154,20 @@ a {
 
 .message-right,
 .message-left {
-  border-radius: 10px;
+  border-radius: 6px;
   max-width: 70%;
+  font-weight: 300;
 }
 
 .message-left {
-  background-color: aliceblue;
+  background-color: #e3e6ea;
+  text-align: left;
 }
 
 .message-right {
-  background-color: rgb(90, 146, 196);
+  background-color: rgb(0, 60, 255);
+  text-align: right;
+  color: aliceblue !important;
 }
 
 .sending-message {
@@ -179,5 +191,7 @@ a {
 }
 
 .details-desc {
+  color: #333;
   height: 30vh;
+  background-color: aliceblue;
 }
