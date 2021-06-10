@@ -139,6 +139,11 @@ a {
   margin: 10px;
 }
 
+#messages {
+  overflow-y: scroll;
+  height: 80vh;
+}
+
 .message-right,
 .message-left {
   border-radius: 10px;

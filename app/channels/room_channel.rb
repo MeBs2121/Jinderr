@@ -15,7 +15,7 @@ class RoomChannel < ApplicationCable::Channel
     @message = current_account.messages.create(room_id: data['room_id'], content: data['message'])
     ActionCable.server.broadcast(
       'room_channel',
-      message: @message,
+      message: @message
     )
     
     # binding.pry

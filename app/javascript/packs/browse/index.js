@@ -3,11 +3,16 @@ $(function () {
   const convo = $("#convo");
   const details = $("#details");
 
+  const element = document.getElementById("messages");
+  element.scrollIntoView(false);
+
   $("#message-tab").on("click", function () {
     $(".message_item").on("click", function () {
       let accountId = $(this).data("account-id");
       // console.log(accountId);
       openConvo();
+      var element = $("#messages");
+      element.scrollTop = element.scrollHeight;
     });
   });
 
