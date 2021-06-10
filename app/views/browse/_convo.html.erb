@@ -3,17 +3,17 @@
   <h2 class="convo-head text-center py-3 border-bottom">Sample</h2>
   <%# メッセージ %>
   <div class="conversation p-2">
-    <div id="messages">
+    <div id="messages" data-my-id="<%= current_account.id %>">
       
     </div>
   </div>
   <%# フォーム %>
-  <div class="sending-message p-1 bg-light w-100 bottom-0 position-absolute">
-    <form action="">
-      <div class="d-flex bd-highlight">
-        <input type="text" class="p-2 flex-grow-1 bd-highlight">
-        <button class="p-2 bd-highlight">Send</button>
+  <div class="bg-info sending-message p-1 w-100 bottom-0 position-absolute">
+    <%# <form action=""> %>
+      <div class="d-flex">
+        <input type="text" class="form-control p-2 flex-grow-1 bd-highlight" data-behavior="room_speaker" id="sending">
+        <%# <button class="p-2 bd-highlight">Send</button> %>
       </div>
-    </form>
+    <%# </form> %>
   </div>
 </div>

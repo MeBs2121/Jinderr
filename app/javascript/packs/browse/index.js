@@ -6,7 +6,7 @@ $(function () {
   $("#message-tab").on("click", function () {
     $(".message_item").on("click", function () {
       let accountId = $(this).data("account-id");
-      console.log(accountId);
+      // console.log(accountId);
       openConvo();
     });
   });

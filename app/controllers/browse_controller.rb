@@ -15,9 +15,7 @@ class BrowseController < ApplicationController
 
     if @account.following? current_account
       room = Room.create
-      
-      binding.pry
-      
+            
       current_account.entries.create(account_id: current_account.id, room_id: room.id)
       @account.entries.create(account_id: @account.id, room_id: room.id)
     end

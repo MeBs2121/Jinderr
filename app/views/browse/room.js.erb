@@ -1,2 +1,3 @@
-console.log(1234)
 document.getElementById("messages").innerHTML = "<%= j render @messages %>"
+document.getElementById("sending").dataset.accountId = "<%= @account.id %>"
+document.getElementById("sending").dataset.roomId = "<%= @room.id %>"
