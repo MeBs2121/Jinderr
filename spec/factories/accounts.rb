@@ -12,5 +12,9 @@ FactoryBot.define do
 
     association :gender
     association :supporting
+
+    after(:create) do |account|
+      create(:interested_in_gender, account: account, gender: create(:gender, name: "male"))
+    end
   end
 end
