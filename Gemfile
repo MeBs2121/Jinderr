@@ -31,6 +31,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'pry-rails'
+gem 'faker'
 
 
 # Reduces boot times through caching; required in config/boot.rb
