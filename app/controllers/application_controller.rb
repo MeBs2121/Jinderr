@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     # profile_path(params[:account][:nickname]) # ログイン後に遷移するpathを設定
-    profile_path(current_account.nickname) # ログイン後に遷移するpathを設定
+    browse_path # ログイン後に遷移するpathを設定
   end
 
   protected

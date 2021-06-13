@@ -26,16 +26,27 @@ class Account < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :rooms, through: :entries
 
-  def following?(account)
-    following_relationships.find_by(following_id: account.id)
+  def following?(other_account)
+    # following_relationships.find_by(following_id: account.id)
+    followings.include?(other_account)
   end
 
-  def follow!(account)
-    following_relationships.create!(following_id: account.id)
+  def follow!(other_account)
+    followings << other_account
+
+    if other_account.following?(self)
+      room = Room.create
+      self.entries.create(room_id: room.id)
+      other_account.entries.create(room_id: room.id)
+    end
   end
 
-  def unfollow!(account)
-    following_relationships.find_by(following_id: account.id).destroy
+  def unfollow!(other_account)
+    following_relationships.find_by(following_id: other_account.id).destroy
+    if other_account.following?(self)
+      room = (self.rooms & other_account.rooms)[0]
+      room.destroy
+    end
   end
 
   #友達判定

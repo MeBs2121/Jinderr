@@ -6,7 +6,7 @@ class BrowseController < ApplicationController
     # @strangers = Account.where.not(id: current_account.id)
     ids_exclusion = current_account.followings.ids
     ids_exclusion << current_account.id
-    
+
     @strangers = Account.where.not(id: ids_exclusion)
   end
 
@@ -15,13 +15,6 @@ class BrowseController < ApplicationController
     @data = @account.slice(:nickname)
 
     current_account.follow!(@account)
-
-    if @account.following? current_account
-      room = Room.create
-            
-      current_account.entries.create(account_id: current_account.id, room_id: room.id)
-      @account.entries.create(account_id: @account.id, room_id: room.id)
-    end
 
     respond_to do |format| # リクエスト形式によって処理を切り分ける
       format.html { redirect_to :root } # html形式の場合
@@ -35,8 +28,8 @@ class BrowseController < ApplicationController
     @entry2 = @account.entries.pluck(:room_id)
     @room = Room.find (@entry1 & @entry2)[0]
     # binding.pry
-    
+
     @messages = @room.messages
   end
-  
+
 end
