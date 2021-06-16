@@ -73,4 +73,53 @@ RSpec.describe Account, type: :model do
   #
   #
   # end
+
+  #follows
+  let (:account) { create(:account) }
+  describe '#follow' do
+    before do
+      sign_in account
+    end
+
+    it "follows another_account" do
+      another_account = create(:account)
+      account.follow!(another_account)
+      result = account.following?(another_account)
+      expect(result).to eq true
+    end
+  end
+
+  describe '#unfollow' do
+    before do
+      sign_in account
+    end
+
+    it "unfollows another_account" do
+      another_account = create(:account)
+      account.follow!(another_account)
+      result = account.following?(another_account)
+      expect(result).to eq true
+      account.unfollow!(another_account)
+
+      result = account.following?(another_account)
+      expect(result).to eq false
+
+    end
+  end
+
+  describe '#matchers' do
+    before do
+      sign_in account
+    end
+
+    it "unfollows another_account" do
+      another_account = create(:account)
+      account.follow!(another_account)
+      another_account.follow!(account)
+      matchers = account.matchers
+      expect(matchers).to include another_account
+    end
+  end
+
+
 end

@@ -7,13 +7,13 @@
       <% @strangers.each_with_index do |stranger, index| %>
         <li class="slide <%= "showing" if index == 0 %>" data-id="<%= stranger.id %>">
           <div class="position-relative">
-            <%= card_image stranger %>
+            <%= image_for stranger, "card-image" %>
             <span class="fs-3 card-nickname"><%= stranger.nickname %></span>
           </div>
         </li>
       <% end %>
     </ul>
-    
+
         <div class="meeting-btns text-center">
           <button id="dislike" class="d-inline-block my-2 mx-4">👎</button>
           <button id="like" class="d-inline-block my-2 mx-4">👍</button>

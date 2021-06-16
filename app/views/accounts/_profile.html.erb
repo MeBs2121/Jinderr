@@ -2,22 +2,22 @@
 
 <div class="row">
   <div class="col-md-4">
-    <%= display_image @account, 160 %>
+    <%= image_for @account, "profile-image" %>
     <%#= image_tag @account.photo.url, size: "160x160", class: "pic" %>
   </div>
-  
+
   <div class="col-md-8">
     <h3><%= @account.nickname %></h3>
 
-    
-      <p>Team : 
+
+      <p>Team :
         <% if @account.supporting.present? %>
           <span><%= @account.supporting.team %></span>
         <% else %>
           <span>なし</span>
         <% end %>
       </p>
-      <p>Gender : 
+      <p>Gender :
         <% if @account.gender.present? %>
           <span><%= @account.gender.name %></span>
         <% else %>
@@ -25,25 +25,25 @@
         <% end %>
       </p>
 
-      <p>Gender interests : 
-        
+      <p>Gender interests :
+
         <% if @account.gender_interests.present? %>
             <% @account.gender_interests.each do |g| %>
-              <%= g.name %> 
+              <%= g.name %>
             <% end %>
           <% else %>
             なし
         <% end %>
-        
+
       </p>
 
-    <p>Details : 
+    <p>Details :
       <% if @account.details.blank? %>
         <span>なし</span>
       <% else %>
         <span><%= @account.details %></span>
       <% end %>
     </p>
-    
+
   </div>
 </div>

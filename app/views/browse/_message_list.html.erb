@@ -4,8 +4,8 @@
     <div class="row message_item m-0" data-account-id="<%= m.id %>">
       <div class="recieved_message p-3">
         <div class="d-flex align-items-center">
-          <%= display_image m, 40 %>
-          <div class="">
+          <%= image_for m, "small-round" %>
+          <div class="message-from">
             <span class="d-block"><%= m.nickname %></span>
             <span class="d-block text-secondary">Sample message sent.</span>
           </div>

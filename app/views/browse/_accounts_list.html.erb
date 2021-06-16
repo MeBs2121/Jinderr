@@ -3,7 +3,7 @@
   <div class="my-account row border-bottom m-0 px-2 py-3">
     <div class="">
       <%= link_to profile_path(current_account.nickname) do %>
-        <%= display_image current_account, 40 %>
+        <%= image_for current_account, "small-round" %>
         <span class="fw-bold"><%= current_account.nickname %></span>
       <% end %>
     </div>

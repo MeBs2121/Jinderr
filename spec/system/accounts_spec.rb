@@ -24,6 +24,23 @@ RSpec.describe "Accounts", type: :system do
   #   end
   # end
   #
+  describe 'Sign in account' do
+    let (:account) { create(:account) }
+    before do
+      visit root_path
+      click_link 'ログイン'
+    end
+
+    context 'with valid values' do
+      it "signs in successfully" do
+        fill_in "Email", with: account.email
+        fill_in "Password", with: account.password
+
+        find('input[name="commit"]').click
+        expect(account.gender.name).to eq "female"
+      end
+    end
+  end
   # describe 'Sign in account' do
   #   let (:account) { create(:account) }
   #   before do
