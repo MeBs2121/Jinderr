@@ -1,12 +1,9 @@
 <% if message.account_id == current_account.id %>
-    <%# 右 %>
     <div class="d-flex justify-content-end align-items-center my-3">
       <span class="their-messagesfs-5 message-right px-4 py-1"><%= message.content %></span>
     </div>
   <% else %>
-    <%# 左 %>
     <div class="d-flex align-items-center my-3">
-      <%#= display_image message.account, 40 %>
       <span class="my-messages fs-5 message-left px-4 py-1"><%= message.content %></span>
     </div>
 <% end %>

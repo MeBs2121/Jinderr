@@ -5,10 +5,11 @@ class AccountsController < ApplicationController
     @account = Account.find_by(nickname: current_account.nickname)
   end
 
+  #ボタンクリック
   def follow
     current_account.follow!(find_account)
   end
-  
+
   def unfollow
     current_account.unfollow!(find_account)
   end

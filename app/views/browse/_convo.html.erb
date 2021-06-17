@@ -4,16 +4,13 @@
   <%# メッセージ %>
   <div class="conversation p-1">
     <div id="messages" class="px-2" data-my-id="<%= current_account.id %>">
-      
+      <%# メッセージパーシャル %>
     </div>
   </div>
   <%# フォーム %>
   <div class="bg-info sending-message p-1 w-100 bottom-0 position-absolute">
-    <%# <form action=""> %>
       <div class="d-flex">
         <input type="text" class="form-control p-2 flex-grow-1 bd-highlight" data-behavior="room_speaker" id="sending">
-        <%# <button class="p-2 bd-highlight">Send</button> %>
       </div>
-    <%# </form> %>
   </div>
 </div>
