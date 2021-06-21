@@ -13,7 +13,7 @@ male = Gender.find(2)
 gender_num = Gender.all.count
 team_num = Supporting.all.count
 
-200.times do |n|
+300.times do |n|
   email = "example#{n+1}@example.com"
   nickname  = Faker::Name.name[0..10]
   firstname = Faker::Name.first_name[0..10]

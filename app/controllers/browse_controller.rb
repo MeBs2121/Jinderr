@@ -7,14 +7,29 @@ class BrowseController < ApplicationController
     ids_exclusion = current_account.followings.ids
     ids_exclusion << current_account.id
 
-    @strangers = Account.where.not(id: ids_exclusion)
+    @strangers = Account.where(gender_id: current_account.gender_interests.ids).where.not(id: ids_exclusion)
   end
 
   def good
     @account = Account.find(params[:account_id])
+    # jsonのためにハッシュにする。
     @data = @account.slice(:nickname)
 
     current_account.follow!(@account)
+
+    respond_to do |format| # リクエスト形式によって処理を切り分ける
+      format.html { redirect_to :root } # html形式の場合
+      format.json { render json: @data } # json形式の場合
+    end
+  end
+
+  def bad
+    @account = Account.find(params[:account_id])
+    # jsonのためにハッシュにする。
+    @data = @account.slice(:nickname)
+
+    # ディスライクの処理を追加
+
 
     respond_to do |format| # リクエスト形式によって処理を切り分ける
       format.html { redirect_to :root } # html形式の場合

@@ -42,22 +42,24 @@ $(function () {
     nextSlide();
   });
 
-  // // ディスライクをクリックしたらDislikeに追加
-  // $("#dislike").on("click", function () {
-  //   const accountId = $(".showing").data("id");
-  //   dislikeAccount(accountId);
-  //   nextSlide();
-  // });
+  // ディスライクをクリックしたらDislikeに追加
+  $("#dislike").on("click", function () {
+    const accountId = $(".showing").data("id");
+    dislikeAccount(accountId);
+    nextSlide();
+  });
 
-  // function dislikeAccount(id) {
-  //   console.log(id);
-  //   $.ajax({
-  //     type: "GET", // リクエストのタイプ
-  //     url: "/bad", // リクエストを送信するURL
-  //     data: { account_id: id }, // サーバーに送信するデータ
-  //     dataType: "json", // サーバーから返却される型
-  //   });
-  // }
+  function dislikeAccount(id) {
+    console.log("click : " + id);
+    $.ajax({
+      type: "GET", // リクエストのタイプ
+      url: "/bad", // リクエストを送信するURL
+      data: { account_id: id }, // サーバーに送信するデータ
+      dataType: "json", // サーバーから返却される型
+    }).done(function(data) {
+      console.log(data)
+    })
+  }
 
   function followAccount(id) {
     console.log(id);

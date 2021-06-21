@@ -1,6 +1,6 @@
 <div class="col-sm-6 pt-5 px-0 meeting bg-gradient position-relative" id="meeting">
 
-  <h2 class="fs-1 text-center mb-5">Want to Chat?</h2>
+  <h2 class="fs-1 text-center mb-5">Want to Chat? <%= @strangers.count %></h2>
 
   <div class="meeting-cards d-flex align-items-center flex-column">
     <ul id="slides" class="mb-4">
@@ -8,7 +8,7 @@
         <li class="slide <%= "showing" if index == 0 %>" data-id="<%= stranger.id %>">
           <div class="position-relative">
             <%= image_for stranger, "card-image" %>
-            <span class="fs-3 card-nickname"><%= stranger.nickname %></span>
+            <span class="fs-3 card-nickname"><%= stranger.nickname %> : <%= stranger.gender.name %></span>
           </div>
         </li>
       <% end %>
