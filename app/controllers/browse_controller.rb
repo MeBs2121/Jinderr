@@ -5,6 +5,7 @@ class BrowseController < ApplicationController
     @matchers = current_account.matchers
     # @strangers = Account.where.not(id: current_account.id)
     ids_exclusion = current_account.followings.ids
+    ids_exclusion = ids_exclusion + current_account.dislikings.ids
     ids_exclusion << current_account.id
 
     @strangers = Account.where(gender_id: current_account.gender_interests.ids).where.not(id: ids_exclusion)
@@ -29,7 +30,7 @@ class BrowseController < ApplicationController
     @data = @account.slice(:nickname)
 
     # ディスライクの処理を追加
-
+    current_account.dislike!(@account)
 
     respond_to do |format| # リクエスト形式によって処理を切り分ける
       format.html { redirect_to :root } # html形式の場合

@@ -21,6 +21,10 @@ class Account < ApplicationRecord
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
 
+  has_many :dislikes, foreign_key: "disliker_id", dependent: :destroy
+  has_many :dislikings, through: "dislikes"
+
+
   #Chat Rooms
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
@@ -47,6 +51,11 @@ class Account < ApplicationRecord
       room = (self.rooms & other_account.rooms)[0]
       room.destroy
     end
+  end
+
+  def dislike!(other_account)
+    dislikings << other_account
+    binding.pry
   end
 
   #友達判定
