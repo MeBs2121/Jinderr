@@ -25,6 +25,7 @@ $(function () {
     convo.show();
     details.show();
   }
+  
   function closeConvo() {
     browsing.show();
     convo.hide();

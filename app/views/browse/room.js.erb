@@ -1,3 +1,10 @@
+// ここではメッセージタブがクリックされた時にデータをレンダリングしている。
+
+// メッセージを挿入
 document.getElementById("messages").innerHTML = "<%= j render @messages %>"
+// room_idとクライアントのidを追加
 document.getElementById("sending").dataset.accountId = "<%= @account.id %>"
 document.getElementById("sending").dataset.roomId = "<%= @room.id %>"
+
+// 画面右のプロフィール部分
+document.getElementById("details").innerHTML = "<%= j render 'details', account: @account %>"

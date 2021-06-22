@@ -17,11 +17,11 @@ $(function () {
       let element;
       if (data.message.account_id === currentId) {
         element = `<div class="d-flex justify-content-end align-items-center my-3">
-        <span class="their-messagesfs-5 message-right px-4 py-1">${data.message.content}</span>
+        <span class="their-messages fs-5 message-right">${data.message.content}</span>
       </div>`;
       } else {
         element = `<div class="d-flex align-items-center my-3">
-        <span class="my-messages fs-5 message-left px-4 py-1">${data.message.content}</span>
+        <span class="my-messages fs-5 message-left">${data.message.content}</span>
       </div>`;
       }
       // console.log(element);

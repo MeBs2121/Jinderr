@@ -191,19 +191,19 @@ a {
 
 .message-right,
 .message-left {
-  border-radius: 6px;
+  border-radius: 12px;
   max-width: 70%;
-  font-weight: 300;
+  font-weight: 400;
+  word-wrap: break-word;
+  padding: 8px 16px
 }
 
 .message-left {
-  background-color: #e3e6ea;
-  text-align: left;
+  background-color: rgb(235, 238, 240);
 }
 
 .message-right {
-  background-color: rgb(0, 60, 255);
-  text-align: right;
+  background-color: rgb(29, 161, 242);
   color: aliceblue !important;
 }
 
