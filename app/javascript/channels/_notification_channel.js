@@ -1,10 +1,10 @@
 import consumer from "./consumer";
 
 $(function () {
-  const chatChannel = consumer.subscriptions.create("RoomChannel", {
+  const chatChannel = consumer.subscriptions.create("NotificationChannel", {
     connected() {
       // Called when the subscription is ready for use on the server
-      console.log("connected RoomChannel");
+      console.log("connected Notification");
     },
 
     disconnected() {
@@ -39,13 +39,13 @@ $(function () {
   });
 
   // インプットでEnterキー
-  $("#sending").on("keypress", function (event) {
-    if(event.target.value === "") return
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      chatChannel.speak(event.target.value);
-      event.target.value = "";
-    }
-  });
+  // $("#sending").on("keypress", function (event) {
+  //   if(event.target.value === "") return
+  //   if (event.keyCode === 13) {
+  //     event.preventDefault();
+  //     chatChannel.speak(event.target.value);
+  //     event.target.value = "";
+  //   }
+  // });
 
 });
