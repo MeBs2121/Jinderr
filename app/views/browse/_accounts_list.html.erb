@@ -1,7 +1,7 @@
 <div class="col-sm-3 p-0 bg-light border-end">
   <%# 上部分 %>
   <div class="my-account row border-bottom m-0 px-2 py-3">
-    <div class="">
+    <div id="current-account" data-my-id="<%= current_account.id %>">
       <%= link_to profile_path(current_account.nickname) do %>
         <%= image_for current_account, "small-round" %>
         <span class="fw-bold"><%= current_account.nickname %></span>

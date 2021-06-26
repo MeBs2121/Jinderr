@@ -195,7 +195,7 @@ a {
   max-width: 70%;
   font-weight: 400;
   word-wrap: break-word;
-  padding: 8px 16px
+  padding: 8px 16px;
 }
 
 .message-left {
@@ -205,6 +205,17 @@ a {
 .message-right {
   background-color: rgb(29, 161, 242);
   color: aliceblue !important;
+}
+
+.message-date {
+  font-size: 13px;
+  color: rgb(64, 81, 94);
+  opacity: 0.6;
+  margin-top: 2px;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
 .sending-message {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_073601) do
+ActiveRecord::Schema.define(version: 2021_06_23_223630) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_073601) do
     t.integer "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "read", default: false
     t.index ["account_id"], name: "index_messages_on_account_id"
     t.index ["room_id"], name: "index_messages_on_room_id"
   end

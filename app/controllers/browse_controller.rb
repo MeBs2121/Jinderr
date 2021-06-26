@@ -46,6 +46,8 @@ class BrowseController < ApplicationController
     # binding.pry
 
     @messages = @room.messages
+
+    @messages.where(account_id: @account.id).update_all(read: true)
   end
 
 end

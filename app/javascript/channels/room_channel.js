@@ -16,12 +16,14 @@ $(function () {
       console.log(data);
       let element;
       if (data.message.account_id === currentId) {
-        element = `<div class="d-flex justify-content-end align-items-center my-3">
-        <span class="their-messages fs-5 message-right">${data.message.content}</span>
+        element = `<div class="d-flex align-items-end flex-column bd-highlight my-3">
+        <div class="their-messages fs-5 message-right px-3 text-left">${data.message.content}</div>
+        <div class="message-date fw-bold">now</div>
       </div>`;
       } else {
-        element = `<div class="d-flex align-items-center my-3">
-        <span class="my-messages fs-5 message-left">${data.message.content}</span>
+        element = `<div class="d-flex align-items-start flex-column bd-highlight my-3">
+        <div class="my-messages fs-5 message-left px-3 text-left">${data.message.content}</div>
+        <div class="message-date fw-bold">now</div>
       </div>`;
       }
       // console.log(element);
