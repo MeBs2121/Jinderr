@@ -1,7 +1,7 @@
 
 <% @matchers.each do |m| %>
   <%= link_to convo_path(m.id), method: :post, remote: true do %>
-    <div class="row message_item m-0" data-account-id="<%= m.id %>">
+    <div class="row message_item m-0" data-account-id="<%= m.id %>" data-room-id="<%= find_room m %>">
       <div class="recieved_message p-3">
         <div class="d-flex align-items-center">
           <%= image_for m, "small-round" %>

@@ -1,6 +1,6 @@
 <div class="row account-list p-4">
   <% @matchers.each do |m| %>
-    <div class="col-sm-6 p-2 matching_item">
+    <div class="col-sm-6 p-2 matching_item" data-room-id="<%= find_room(m) %>">
       <div class="image text-center">
         <%= image_for m, "middle-round" %>
       </div>

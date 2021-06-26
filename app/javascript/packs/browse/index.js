@@ -8,7 +8,7 @@ $(function () {
 
   $("#message-tab").on("click", function () {
     $(".message_item").on("click", function () {
-      let accountId = $(this).data("account-id");
+      let roomId = $(this).data("room-id");
       // console.log(accountId);
       openConvo();
       var element = $("#messages");
@@ -20,12 +20,12 @@ $(function () {
     closeConvo();
   });
 
-  function openConvo() {
+  function openConvo(roomId) {
     browsing.hide();
     convo.show();
     details.show();
   }
-  
+
   function closeConvo() {
     browsing.show();
     convo.hide();
