@@ -39,7 +39,10 @@ $(function () {
 
   // ライクをクリックしたらフォローする
   $("#like").on("click", function () {
-    const accountId = $(".showing").data("id");
+    let card = $(".showing");
+    let accountId = card.data("id");
+    let nickname = card.find("span").text();
+    displayMessage(nickname);
     followAccount(accountId);
     nextSlide();
   });
@@ -57,9 +60,6 @@ $(function () {
       type: "GET", // リクエストのタイプ
       url: "/bad", // リクエストを送信するURL
       data: { account_id: id }, // サーバーに送信するデータ
-      dataType: "json", // サーバーから返却される型
-    }).done(function(data) {
-      console.log(data)
     })
   }
 
@@ -69,11 +69,13 @@ $(function () {
       type: "GET", // リクエストのタイプ
       url: "/good", // リクエストを送信するURL
       data: { account_id: id }, // サーバーに送信するデータ
-      dataType: "json", // サーバーから返却される型
-    }).done(function (data) {
-      $("#good-message").empty();
-      $("#good-message").append(`<p class="fs-4">Liked ${data.nickname}!</p>`);
-    });
+    })
+  }
+
+  function displayMessage(name) {
+    console.log(name);
+    $("#good-message").empty();
+    $("#good-message").append(`<p class="fs-4">Liked ${name}!</p>`);
   }
 
   function nextSlide() {
