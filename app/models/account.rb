@@ -55,7 +55,6 @@ class Account < ApplicationRecord
 
   def dislike!(other_account)
     dislikings << other_account
-    binding.pry
   end
 
   #友達判定
