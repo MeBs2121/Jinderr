@@ -3,15 +3,10 @@ class BrowseController < ApplicationController
 
   def index
     @matchers = current_account.matchers
-    # @strangers = Account.where.not(id: current_account.id)
-    ids_exclusion = current_account.followings.ids
-    ids_exclusion = ids_exclusion + current_account.dislikings.ids
-    ids_exclusion << current_account.id
-
-    @strangers = Account.where(gender_id: current_account.gender_interests.ids).where.not(id: ids_exclusion)
+    @strangers = Account.where(gender_id: gender_ids).where.not(id: ids_to_exclude)
   end
 
-  def good
+  def good #フォロー時にメッセージを表示
     @account = Account.find(params[:account_id])
     # jsonのためにハッシュにする。
     @data = @account.slice(:nickname)
@@ -39,15 +34,27 @@ class BrowseController < ApplicationController
   end
 
   def room
-    @account = Account.find(params[:id])
-    @entry1 = current_account.entries.pluck(:room_id)
-    @entry2 = @account.entries.pluck(:room_id)
-    @room = Room.find (@entry1 & @entry2)[0]
-    # binding.pry
+    @account = Account.find(params[:id]) #相手のアカウント
+    @room = (current_account.rooms & @account.rooms)[0] #ルームを特定
 
     @messages = @room.messages
 
-    @messages.where(account_id: @account.id).update_all(read: true)
+    @messages.where(account_id: @account.id, read: false).each do |m|
+        m.update(read: true)
+    end
+
   end
+
+  private
+    def ids_to_exclude
+      ids = current_account.followings.ids
+      ids = ids + current_account.dislikings.ids
+      ids << current_account.id
+      ids
+    end
+
+    def gender_ids
+      current_account.gender_interests.ids
+    end
 
 end

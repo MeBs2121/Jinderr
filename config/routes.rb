@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post 'follow/:id', to: 'accounts#follow', as: 'follow'
   get 'good', to: 'browse#good', as: 'good'
   get 'bad', to: 'browse#bad'
+  get 'read/:id', to: 'messages#read'
 end
