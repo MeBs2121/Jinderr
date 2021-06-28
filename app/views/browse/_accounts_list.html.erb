@@ -15,7 +15,9 @@
       <button class="nav-link active" id="matching-tab" data-bs-toggle="tab" data-bs-target="#matching" type="button" role="tab" aria-controls="matching" aria-selected="true">Matching</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="message-tab" data-bs-toggle="tab" data-bs-target="#message" type="button" role="tab" aria-controls="message" aria-selected="false">Message</button>
+      <button class="nav-link" id="message-tab" data-bs-toggle="tab" data-bs-target="#message" type="button" role="tab" aria-controls="message" aria-selected="false">
+        Message <span class="text-danger"><%= @unread_messages.count if @unread_messages.any? %></span>
+      </button>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">

@@ -4,6 +4,9 @@ class BrowseController < ApplicationController
   def index
     @matchers = current_account.matchers
     @strangers = Account.where(gender_id: gender_ids).where.not(id: ids_to_exclude)
+
+    @unread_messages = Message.where(room_id: current_account.rooms.ids, read: false).where.not(account_id: current_account.id)
+    # binding.pry
   end
 
   def good #フォロー時にメッセージを表示

@@ -6,6 +6,7 @@ class Message < ApplicationRecord
   belongs_to :room
 
   def make_it_read
+    # binding.pry
     ActionCable.server.broadcast(
       "room_channel_#{self.room.id}",
       type: "read",

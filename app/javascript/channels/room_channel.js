@@ -63,6 +63,8 @@ $(function () {
       const currentId = $("#messages").data("my-id");
 
       if (data.message.account_id === currentId) {
+        console.log("make it read");
+        
         const el = $("#messages").find(`[data-msg-id="${data.message.id}"]`).find(".message-date");
         const now = el.text();
         el.html(`<span class="text-dark mr-2">✅</span> ${now}`)
