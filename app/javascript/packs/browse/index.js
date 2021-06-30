@@ -5,6 +5,13 @@ $(function () {
 
   const element = document.getElementById("messages");
 
+  $("#matching-tab").on("click", function() {
+    $.ajax({
+      type: "GET", // リクエストのタイプ
+      url: `/new_matchings`, // リクエストを送信するURL
+    })
+  });
+
   $("#message-tab").on("click", function () {
     $(".message_item").on("click", function () {
       let roomId = $(this).data("room-id");

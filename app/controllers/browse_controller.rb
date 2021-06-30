@@ -5,6 +5,8 @@ class BrowseController < ApplicationController
     @matchers = current_account.matchers
     @strangers = Account.where(gender_id: gender_ids).where.not(id: ids_to_exclude)
 
+    @new_friends_ids = current_account.new_friends.ids
+
     @unread_messages = Message.where(room_id: current_account.rooms.ids, read: false).where.not(account_id: current_account.id)
     # binding.pry
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_223630) do
+ActiveRecord::Schema.define(version: 2021_06_29_092944) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(version: 2021_06_23_223630) do
     t.boolean "read", default: false
     t.index ["account_id"], name: "index_messages_on_account_id"
     t.index ["room_id"], name: "index_messages_on_room_id"
+  end
+
+  create_table "new_matchings", force: :cascade do |t|
+    t.integer "account_id"
+    t.integer "friend_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_new_matchings_on_account_id"
+    t.index ["friend_id"], name: "index_new_matchings_on_friend_id"
   end
 
   create_table "relationships", force: :cascade do |t|

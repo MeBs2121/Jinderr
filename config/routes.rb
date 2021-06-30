@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get 'good', to: 'browse#good', as: 'good'
   get 'bad', to: 'browse#bad'
   get 'read/:id', to: 'messages#read'
+  get 'new_matchings', to: 'new_matchings#destroy'
 end
