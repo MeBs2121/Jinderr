@@ -7,7 +7,7 @@
           <%= image_for m, "small-round" %>
           <div class="message-from">
             <span class="d-block"><%= m.nickname %></span>
-            <span class="d-block text-secondary">Sample message sent.</span>
+            <span class="d-block text-secondary"><%= m.messages.any? ? last_message(m) : "no messages yet" %></span>
           </div>
         </div>
       </div>

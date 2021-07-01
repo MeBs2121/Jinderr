@@ -1,0 +1,9 @@
+<div class="p-3">
+  <%= image_for current_account, "tab-image" %>
+  <h4 class="fw-normal fs-5 mb-2">Nickname : <%= current_account.nickname %></h4>
+  <h4 class="fw-normal fs-5 mb-2">Gender : <%= current_account.gender.name %></h4>
+  <h4 class="fw-normal fs-5 mb-2">Team : <%= current_account.supporting.team %></h4>
+  <h4 class="fw-normal fs-5 mb-2">Details :</h4>
+
+  <p><%= current_account.details %></p>
+</div>
