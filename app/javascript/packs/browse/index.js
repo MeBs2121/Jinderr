@@ -48,7 +48,7 @@ $(function () {
     let card = $(".showing");
     let accountId = card.data("id");
     let nickname = card.find("span").text();
-    displayMessage(nickname, "Liked");
+    // displayMessage(nickname, "Liked");
     createRelation(accountId, "good");
     nextSlide();
   });
@@ -58,7 +58,7 @@ $(function () {
     let card = $(".showing");
     let accountId = card.data("id");
     let nickname = card.find("span").text();
-    displayMessage(nickname, "Disliked");
+    // displayMessage(nickname, "Disliked");
     createRelation(accountId, "bad");
     nextSlide();
   });
@@ -69,15 +69,15 @@ $(function () {
       type: "GET", // リクエストのタイプ
       url: `/${goodBad}`, // リクエストを送信するURL
       data: { account_id: id }, // サーバーに送信するデータ
-      dataType: "json"
+      dataType: "script"
     })
   }
 
-  function displayMessage(name, text) {
-    console.log(name);
-    $("#good-message").empty();
-    $("#good-message").append(`<p class="fs-4">${text} ${name}!</p>`);
-  }
+  // function displayMessage(name, text) {
+  //   console.log(name);
+  //   $("#good-message").empty();
+  //   $("#good-message").append(`<p class="fs-4">${text} ${name}!</p>`);
+  // }
 
   function nextSlide() {
     console.log("Next Slide!");

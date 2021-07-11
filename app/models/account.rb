@@ -35,6 +35,9 @@ class Account < ApplicationRecord
   has_many :new_matchings, dependent: :destroy
   has_many :new_friends, through: :new_matchings, source: :friend
 
+  #Heart
+  has_one :heart
+
   def following?(other_account)
     # following_relationships.find_by(following_id: account.id)
     followings.include?(other_account)
@@ -51,6 +54,8 @@ class Account < ApplicationRecord
       self.new_matchings.create(friend_id: other_account.id)
       other_account.new_matchings.create(friend_id: self.id)
     end
+
+    self.heart.cut
   end
 
   def unfollow!(other_account)

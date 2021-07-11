@@ -1,6 +1,6 @@
-<div class="row account-list p-4">
+<div class="row account-list pt-4 m-0">
   <% @matchers.each do |m| %>
-    <div class="col-sm-6 p-2 matching_item" data-room-id="<%= find_room(m) %>">
+    <div class="col-sm-6 matching_item" data-room-id="<%= find_room(m) %>">
       <% if @new_friends_ids.include?(m.id) %>
         <div class="new-friend"></div>
       <% end %>

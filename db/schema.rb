@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_092944) do
+ActiveRecord::Schema.define(version: 2021_07_06_092931) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -60,6 +60,14 @@ ActiveRecord::Schema.define(version: 2021_06_29_092944) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "hearts", force: :cascade do |t|
+    t.integer "stock"
+    t.integer "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_hearts_on_account_id"
   end
 
   create_table "interested_in_genders", force: :cascade do |t|
@@ -116,6 +124,7 @@ ActiveRecord::Schema.define(version: 2021_06_29_092944) do
   add_foreign_key "accounts", "supportings"
   add_foreign_key "entries", "accounts"
   add_foreign_key "entries", "rooms"
+  add_foreign_key "hearts", "accounts"
   add_foreign_key "interested_in_genders", "accounts"
   add_foreign_key "interested_in_genders", "genders"
   add_foreign_key "messages", "accounts"

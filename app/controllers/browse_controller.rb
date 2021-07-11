@@ -2,8 +2,10 @@ class BrowseController < ApplicationController
   before_action :authenticate_account!
 
   def index
+    current_account.heart.reset unless current_account.heart.updated_at.to_date == Date.today
+
     @matchers = current_account.matchers
-    @strangers = Account.where(gender_id: gender_ids).where.not(id: ids_to_exclude)
+    @strangers = Account.where(gender_id: gender_ids).where.not(id: ids_to_exclude).order("RANDOM()").limit(10)
 
     @new_friends_ids = current_account.new_friends.ids
 
@@ -12,30 +14,24 @@ class BrowseController < ApplicationController
   end
 
   def good #フォロー時にメッセージを表示
+
     @account = Account.find(params[:account_id])
-    # jsonのためにハッシュにする。
-    @data = @account.slice(:nickname)
 
-    current_account.follow!(@account)
+    @stock_empty = current_account.heart.stock == 0
 
-    respond_to do |format| # リクエスト形式によって処理を切り分ける
-      format.html { redirect_to :root } # html形式の場合
-      format.json { render json: @data } # json形式の場合
+    unless @stock_empty #Heartがあればフォロー
+      current_account.follow!(@account)
+      @stock_empty = current_account.heart.stock == 0
     end
+
   end
 
   def bad
     @account = Account.find(params[:account_id])
-    # jsonのためにハッシュにする。
-    @data = @account.slice(:nickname)
 
     # ディスライクの処理を追加
     current_account.dislike!(@account)
 
-    respond_to do |format| # リクエスト形式によって処理を切り分ける
-      format.html { redirect_to :root } # html形式の場合
-      format.json { render json: @data } # json形式の場合
-    end
   end
 
   def room
@@ -47,7 +43,14 @@ class BrowseController < ApplicationController
     @messages.where(account_id: @account.id, read: false).each do |m|
         m.update(read: true)
     end
+  end
 
+  def load_accounts
+
+    respond_to do |format| # リクエスト形式によって処理を切り分ける
+      format.html { redirect_to :root } # html形式の場合
+      format.json { render json: @strangers } # json形式の場合
+    end
   end
 
   private
@@ -60,6 +63,10 @@ class BrowseController < ApplicationController
 
     def gender_ids
       current_account.gender_interests.ids
+    end
+
+    def reset_heart
+      current_account.heart.update(stock: 10)
     end
 
 end

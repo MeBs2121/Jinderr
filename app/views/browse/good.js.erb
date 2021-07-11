@@ -1,0 +1,9 @@
+
+<% if @stock_empty %>
+  $("#curtain").removeClass("hide")
+  $("#hearts i:first-child").remove();
+<% else %>
+  $("#hearts i:first-child").remove();
+  $("#good-message").empty();
+  $("#good-message").append("<p class='fs-4'>Liked <%= @account.nickname %>!</p>");
+<% end %>
