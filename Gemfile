@@ -33,6 +33,8 @@ gem 'mini_magick'
 gem 'pry-rails'
 gem 'faker'
 
+gem 'simple_calendar', '~> 2.0'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
