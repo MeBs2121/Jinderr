@@ -22,8 +22,13 @@ module Jinderr
         view_specs: false
     end
 
-    config.time_zone = 'Asia/Tokyo'
-    config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
+    # config.i18n.default_locale = :ja
+    config.beginning_of_week = :sunday
+    # config/application.rb
+    config.i18n.available_locales = [:en, :de, :fr]
+    config.i18n.default_locale = :en
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

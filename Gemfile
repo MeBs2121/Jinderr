@@ -34,6 +34,7 @@ gem 'pry-rails'
 gem 'faker'
 
 gem 'simple_calendar', '~> 2.0'
+gem 'rails-i18n'
 
 
 # Reduces boot times through caching; required in config/boot.rb

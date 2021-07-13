@@ -282,3 +282,36 @@ a {
   height: 30vh;
   background-color: aliceblue;
 }
+
+// カレンダー
+.simple-calendar {
+  text-align: center;
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background: rgb(152, 215, 232);
+    border-radius: 50%;
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {
+    opacity: 0.3;
+  }
+  .next-month {
+    opacity: 0.3;
+  }
+  .current-month {}
+
+  .has-events {}
+}

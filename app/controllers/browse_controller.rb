@@ -12,6 +12,7 @@ class BrowseController < ApplicationController
     @unread_messages = Message.where(room_id: current_account.rooms.ids, read: false).where.not(account_id: current_account.id)
 
     @events = current_account.supporting.home_games.all
+
     # binding.pry
   end
 
