@@ -17,7 +17,7 @@ module EventsHelper
         break
       end
     end
-    
+
     id
   end
 end
