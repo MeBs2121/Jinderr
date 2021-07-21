@@ -1,4 +1,5 @@
 class BrowseController < ApplicationController
+  protect_from_forgery except: :index
   before_action :authenticate_account!
 
   def index
@@ -11,7 +12,17 @@ class BrowseController < ApplicationController
 
     @unread_messages = Message.where(room_id: current_account.rooms.ids, read: false).where.not(account_id: current_account.id)
 
-    @events = current_account.supporting.home_games.all
+    search_date = params["start_date"]
+    if search_date.nil?
+      @events = current_account.supporting.home_games.where(start_time: Time.now.in_time_zone.all_month)
+    else
+      @events = current_account.supporting.home_games.where(start_time: search_date.in_time_zone.all_month)
+    end
+
+    @e = Event.first
+
+    # 月
+    # params["start_date"].to_time.month
 
     # binding.pry
   end

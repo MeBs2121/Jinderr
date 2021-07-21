@@ -104,4 +104,14 @@ $(function () {
     childList: true
   };
 
+  // カレンダー
+  $('.match-day').on("click", function() {
+    console.log($(this).data("event-id"));
+    $.ajax({
+      type: "GET", // リクエストのタイプ
+      url: `/game/${$(this).data("event-id")}`, // リクエストを送信するURL
+      dataType: "script", // サーバーから返却される型
+    });
+  });
+
 });

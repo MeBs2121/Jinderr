@@ -286,19 +286,24 @@ a {
 // カレンダー
 .simple-calendar {
   text-align: center;
-  .day {}
+  .day {
+    font-weight: bold;
+  }
 
-  .wday-0 {}
+  .wday-0 {
+    color: red;
+  }
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
   .wday-4 {}
   .wday-5 {}
-  .wday-6 {}
+  .wday-6 {
+    color: blue;
+  }
 
   .today {
-    background: rgb(152, 215, 232);
-    border-radius: 50%;
+    color: red;
   }
   .past {}
   .future {}
@@ -314,4 +319,26 @@ a {
   .current-month {}
 
   .has-events {}
+
+  .match-day {
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: "・";
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      color: red;
+      top: -7px;
+      font-size: 25px;
+      transform: translateX(-6px);
+    }
+
+    &:hover {
+      opacity: 0.6; 
+    }
+  }
+
 }
