@@ -5,9 +5,9 @@ class NoticeMailer < ApplicationMailer
   #
   #   en.notice_mailer.matching.subject
   #
-  def matching
-    @greeting = "Hi"
+  def matching follower, account
+    @greeting = "Matching creaated with #{follower.nickname}!"
 
-    mail to: "to@example.org"
+    mail to: account.email
   end
 end

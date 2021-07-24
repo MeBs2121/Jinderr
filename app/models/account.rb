@@ -53,6 +53,10 @@ class Account < ApplicationRecord
 
       self.new_matchings.create(friend_id: other_account.id)
       other_account.new_matchings.create(friend_id: self.id)
+
+      # メール送信
+      binding.pry
+      NoticeMailer.matching(self, other_account).deliver_now
     end
 
     self.heart.cut
