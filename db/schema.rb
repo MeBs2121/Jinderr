@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_073827) do
+ActiveRecord::Schema.define(version: 2021_07_24_054518) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2021_07_12_073827) do
     t.index ["gender_id"], name: "index_accounts_on_gender_id"
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
     t.index ["supporting_id"], name: "index_accounts_on_supporting_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer "account_id", null: false
+    t.string "subject"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_contacts_on_account_id"
   end
 
   create_table "dislikes", force: :cascade do |t|
@@ -132,6 +141,7 @@ ActiveRecord::Schema.define(version: 2021_07_12_073827) do
 
   add_foreign_key "accounts", "genders"
   add_foreign_key "accounts", "supportings"
+  add_foreign_key "contacts", "accounts"
   add_foreign_key "entries", "accounts"
   add_foreign_key "entries", "rooms"
   add_foreign_key "hearts", "accounts"

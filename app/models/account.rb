@@ -38,6 +38,9 @@ class Account < ApplicationRecord
   #Heart
   has_one :heart
 
+  # contact
+  has_many :contacts
+
   def following?(other_account)
     # following_relationships.find_by(following_id: account.id)
     followings.include?(other_account)
@@ -55,7 +58,7 @@ class Account < ApplicationRecord
       other_account.new_matchings.create(friend_id: self.id)
 
       # メール送信
-      binding.pry
+      # binding.pry
       NoticeMailer.matching(self, other_account).deliver_now
     end
 

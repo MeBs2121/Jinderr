@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get 'read/:id', to: 'messages#read'
   get 'new_matchings', to: 'new_matchings#destroy'
   get 'game/:event_id', to: 'events#game'
+
+  resources :contacts, only: [:new, :create]
+  get 'contacts/confirm', to: 'contacts#confirm'
 end
